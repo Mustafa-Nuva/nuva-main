@@ -1,0 +1,9 @@
+# NUVA Medical AI - Robots.txt
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://nuva.krd/sitemap.xml
+
+# Crawl-delay
+Crawl-delay: 1

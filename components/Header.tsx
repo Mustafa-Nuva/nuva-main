@@ -58,7 +58,7 @@ export default function Header() {
           <a href="#about" className={`nav-link px-4 py-2 rounded-lg transition-all duration-300 ${isScrolled ? 'text-gray-700 hover:text-gray-900 hover:bg-gray-100/50' : 'text-white/90 hover:text-white hover:bg-white/10'}`}>About</a>
           <a href="#contact" className={`nav-link px-4 py-2 rounded-lg transition-all duration-300 ${isScrolled ? 'text-gray-700 hover:text-gray-900 hover:bg-gray-100/50' : 'text-white/90 hover:text-white hover:bg-white/10'}`}>Contact</a>
         </nav>
-        <a href="#cta" className={`btn btn-outline header-cta backdrop-blur-sm transition-all duration-300 ${isScrolled ? 'bg-blue-600 hover:bg-blue-700 text-white border-blue-600 hover:border-blue-700' : 'bg-white/20 hover:bg-white/30 text-white border-white/30 hover:border-white/50'}`}>Get early access</a>
+        <a href="#contact" onClick={(e) => { e.preventDefault(); scrollToSection('#contact'); }} className={`btn btn-outline header-cta backdrop-blur-sm transition-all duration-300 ${isScrolled ? 'bg-blue-600 hover:bg-blue-700 text-white border-blue-600 hover:border-blue-700' : 'bg-white/20 hover:bg-white/30 text-white border-white/30 hover:border-white/50'}`}>Contact Us</a>
       </div>
     </header>
   );

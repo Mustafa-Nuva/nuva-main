@@ -39,7 +39,6 @@ export default function Footer() {
             <a href="mailto:admin@nuva.krd">Contact</a>
           </div>
           <div className="footer-socials">
-            <a href="https://x.com" target="_blank" rel="noreferrer" aria-label="NUVA on X (Twitter)">X</a>
             <a href="https://www.instagram.com/nuva.krd?igsh=Z2NsaHR5eHptOGZ5" className="social-link" aria-label="NUVA on Instagram" target="_blank" rel="noreferrer">Instagram</a>
           </div>
         </div>

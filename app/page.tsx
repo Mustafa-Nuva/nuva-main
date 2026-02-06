@@ -17,11 +17,9 @@ import FutureCapabilities from "@/components/FutureCapabilities";
 import AccountPersonalization from "@/components/AccountPersonalization";
 import HowItWorks from "@/components/HowItWorks";
 import Contact from "@/components/Contact";
-import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
 import StatsSection from "@/components/StatsSection";
 import InteractiveFeatures from "@/components/InteractiveFeature";
-import TextReveal from "@/components/TextReveal";
 
 export default function Home() {
   useEffect(() => {
@@ -74,7 +72,6 @@ export default function Home() {
           <AccountPersonalization />
           <HowItWorks />
           <Contact />
-          <CTA />
         </main>
         <Footer />
       </div>
