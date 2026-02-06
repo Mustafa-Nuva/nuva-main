@@ -1,0 +1,247 @@
+/* Full-screen professional logo intro animation */
+.logo-intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: intro-fade-out 0.8s ease-out 2.7s forwards;
+}
+
+.logo-intro-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3rem;
+  animation: intro-content-fade 3.2s ease-out forwards;
+}
+
+.logo-intro-mark {
+  position: relative;
+  width: 280px;
+  height: 280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: intro-logo-entrance 2.2s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.logo-intro-mark::before {
+  content: none;
+}
+
+.logo-intro-mark::after {
+  content: none;
+}
+
+.logo-intro-mark img {
+  position: relative;
+  z-index: 10;
+  background: transparent;
+  animation: logo-self-motion 2.5s ease-in-out forwards;
+  border: none;
+  outline: none;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}
+
+.logo-intro-text {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  color: #0f172a;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: intro-text-fade 1.5s ease-out 1.2s forwards;
+}
+
+/* Keyframe Animations */
+@keyframes intro-logo-entrance {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translateY(30px);
+  }
+  40% {
+    opacity: 1;
+    transform: scale(1.15) translateY(-5px);
+  }
+  60% {
+    transform: scale(0.95) translateY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes logo-self-motion {
+  0% {
+    transform: rotate(0deg) scale(0.5);
+    opacity: 0;
+  }
+  20% {
+    transform: rotate(180deg) scale(0.8);
+    opacity: 0.5;
+  }
+  40% {
+    transform: rotate(360deg) scale(1.1);
+    opacity: 1;
+  }
+  60% {
+    transform: rotate(360deg) scale(1.05) translateY(-8px);
+  }
+  80% {
+    transform: rotate(360deg) scale(0.98) translateY(4px);
+  }
+  100% {
+    transform: rotate(360deg) scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes intro-glow-pulse {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+  60% {
+    opacity: 0.8;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0.9;
+    transform: scale(1);
+  }
+}
+
+@keyframes intro-glow-pulse-smooth {
+  0% {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  35% {
+    opacity: 0.6;
+    transform: scale(1.15);
+  }
+  65% {
+    opacity: 0.55;
+    transform: scale(1.08);
+  }
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+}
+
+@keyframes intro-light-sweep {
+  0% {
+    opacity: 0;
+    transform: translateX(-150%) rotate(-10deg);
+  }
+  30% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0.8;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(150%) rotate(-10deg);
+  }
+}
+
+@keyframes intro-light-sweep-smooth {
+  0% {
+    opacity: 0;
+    transform: translateX(-160%) rotate(-8deg);
+  }
+  25% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  75% {
+    opacity: 0.4;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(160%) rotate(-8deg);
+  }
+}
+
+@keyframes intro-text-fade {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+    letter-spacing: 0.05em;
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+    letter-spacing: 0.2em;
+  }
+}
+
+@keyframes intro-content-fade {
+  0%, 85% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes intro-fade-out {
+  0% {
+    opacity: 1;
+    visibility: visible;
+  }
+  99% {
+    opacity: 0;
+    visibility: visible;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .logo-intro-overlay {
+    animation: intro-fade-out 0.3s ease-out 0.5s forwards;
+  }
+  
+  .logo-intro-mark,
+  .logo-intro-mark::before,
+  .logo-intro-mark::after,
+  .logo-intro-text,
+  .logo-intro-content {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+  }
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .logo-intro-mark {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .logo-intro-text {
+    font-size: 2.5rem;
+  }
+}

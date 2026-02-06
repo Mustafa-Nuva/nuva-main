@@ -1,0 +1,205 @@
+/* ========================================
+   ABOUT THE TEAM SECTION
+   ======================================== */
+
+.about-the-team {
+  background: var(--bg-elevated);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+  margin-top: 4rem;
+}
+
+@media (min-width: 768px) {
+  .team-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 4rem;
+  }
+}
+
+.team-member-card {
+  background: var(--bg-main);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  text-align: center;
+  transition: all var(--transition-med);
+}
+
+.team-member-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(37, 99, 235, 0.2);
+}
+
+.team-photo {
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.member-photo {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--border-subtle);
+  transition: border-color var(--transition-med);
+  image-rendering: high-quality;
+  image-rendering: -webkit-optimize-contrast;
+}
+
+/* Enhanced quality for Mustafa's photo */
+img[alt="Mustafa Karwan"] {
+  object-position: center 30%;
+}
+
+.team-member-card:hover .member-photo {
+  border-color: var(--accent);
+}
+
+.team-info h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem;
+  color: var(--text-main);
+}
+
+.team-role {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--accent);
+  margin: 0 0 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.team-bio {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+/* Institutional Backing */
+.institutional-backing {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.backing-text {
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--text-soft);
+  margin: 0 0 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.institution-logos {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.institution-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  text-align: center;
+  gap: 1.5rem;
+}
+
+.institution-logo {
+  width: 120px;
+  height: 120px;
+  object-fit: contain;
+  filter: brightness(1.1) contrast(1.2) opacity(1);
+  transition: all var(--transition-med);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 12px;
+}
+
+.institution-logo:hover {
+  filter: grayscale(0) opacity(1);
+}
+
+.institution-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.institution-logo-placeholder {
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #1e40af, #3b82f6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(59, 130, 246, 0.2);
+}
+
+.logo-text-placeholder {
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 0.1em;
+}
+
+.institution-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 0.3rem;
+}
+
+.institution-detail {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.institution-divider {
+  color: var(--text-soft);
+  font-size: 1.2rem;
+}
+
+/* Footer Institution Credits */
+.footer-institutions {
+  margin: 1rem 0;
+}
+
+.institution-credit {
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  margin: 0.3rem 0;
+  line-height: 1.4;
+}
+
+/* Responsive */
+@media (max-width: 767px) {
+  .team-member-card {
+    padding: 2rem;
+  }
+  
+  .member-photo {
+    width: 100px;
+    height: 100px;
+  }
+  
+  .institution-logos {
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  .institution-divider {
+    display: none;
+  }
+}
