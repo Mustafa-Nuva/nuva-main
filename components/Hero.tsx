@@ -47,7 +47,7 @@ export default function Hero() {
               NUVA assists—your doctor decides.
             </p>
             <div className="hero-actions">
-              <a href="#cta" className="btn btn-primary">Try NUVA</a>
+              <a href="https://ai.nuva.krd" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Try NUVA</a>
               <a href="#what-is-nuva" className="btn btn-secondary">How it works</a>
             </div>
           </div>
