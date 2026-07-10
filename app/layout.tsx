@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/alone-logo-w.png",
+        url: "/og-logo.png",
         width: 512,
         height: 512,
         alt: "NUVA Medical AI Logo",
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "NUVA – Kurdistan's First Medical AI Assistant",
     description: "AI-powered medical assistant with Kurdish voice support for doctors, pharmacists, patients & students in Kurdistan.",
-    images: ["/images/alone-logo-w.png"],
+    images: ["/og-logo.png"],
   },
   robots: {
     index: true,
@@ -142,8 +142,8 @@ export default function RootLayout({
               "@type": "Organization",
               name: "NUVA",
               url: "https://nuva.krd",
-              logo: "https://nuva.krd/images/alone-logo-w.png",
-              image: "https://nuva.krd/images/alone-logo-w.png",
+              logo: "https://nuva.krd/og-logo.png",
+              image: "https://nuva.krd/og-logo.png",
               description: "Kurdistan's first medical AI assistant, developed at Hawler Medical University with support from the Kurdistan Innovation Institute (KII).",
               email: "admin@nuva.krd",
               founder: [
