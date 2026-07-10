@@ -143,8 +143,19 @@ export default function RootLayout({
               name: "NUVA",
               url: "https://nuva.krd",
               logo: "https://nuva.krd/images/alone-logo-w.png",
+              image: "https://nuva.krd/images/alone-logo-w.png",
               description: "Kurdistan's first medical AI assistant, developed at Hawler Medical University with support from the Kurdistan Innovation Institute (KII).",
               email: "admin@nuva.krd",
+              founder: [
+                {
+                  "@type": "Person",
+                  name: "Mustafa Karwan",
+                },
+                {
+                  "@type": "Person",
+                  name: "Yad Qasim",
+                },
+              ],
               sameAs: [
                 "https://www.instagram.com/nuva.krd",
               ],

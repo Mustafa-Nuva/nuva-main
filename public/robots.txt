@@ -2,6 +2,13 @@
 User-agent: *
 Allow: /
 
+# Block person photos from being indexed
+Disallow: /images/Screenshot_20251211_013714_Gallery.jpg
+Disallow: /images/Screenshot_20260203_230823_Gallery.jpg
+Disallow: /images/Screenshot_20260204_201729_Gallery.jpg
+Disallow: /images/IMG_2668.jpg
+Disallow: /images/bd7e8a5d-d11c-43dd-bb51-4ee9236b156c.png
+
 # Sitemap
 Sitemap: https://nuva.krd/sitemap.xml
 

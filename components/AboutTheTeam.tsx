@@ -11,13 +11,6 @@ export default function AboutTheTeam() {
 
       <div className="container team-grid">
         <article className="team-member-card" data-animate="fade-up" data-animate-delay="0">
-          <div className="team-photo">
-            <img 
-              src="/images/Screenshot_20260204_201729_Gallery.jpg" 
-              alt="Mustafa Karwan" 
-              className="member-photo"
-            />
-          </div>
           <div className="team-info">
             <h3>Mustafa Karwan</h3>
             <p className="team-role">Co-founder</p>
@@ -25,18 +18,21 @@ export default function AboutTheTeam() {
         </article>
 
         <article className="team-member-card" data-animate="fade-up" data-animate-delay="80">
-          <div className="team-photo">
-            <img 
-              src="/images/IMG_2668.jpg" 
-              alt="Yad Qasim" 
-              className="member-photo"
-            />
-          </div>
           <div className="team-info">
             <h3>Yad Qasim</h3>
             <p className="team-role">Co-founder</p>
           </div>
         </article>
+      </div>
+
+      <div className="team-logo" data-animate="fade-up" data-animate-delay="120">
+        <img
+          src="/images/alone-logo-w.png"
+          alt="NUVA Medical AI Logo"
+          className="team-logo-img"
+          width={80}
+          height={80}
+        />
       </div>
 
       <div className="institutional-backing" data-animate="fade-up" data-animate-delay="160">
