@@ -1,105 +1,110 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
+import { motion, useReducedMotion } from "framer-motion";
+import { Activity, Brain, Mic, Pill, Shield, Sparkles } from "lucide-react";
+import ShinyText from "./ui/ShinyText";
+import Reveal from "./ui/Reveal";
+import ChatMockup from "./ui/ChatMockup";
+import { useI18n } from "@/lib/i18n";
+
+const capabilities = [
+  { icon: Sparkles, labelKey: "cap_ai" },
+  { icon: Activity, labelKey: "cap_symptoms" },
+  { icon: Pill, labelKey: "cap_meds" },
+  { icon: Mic, labelKey: "cap_voice" },
+  { icon: Brain, labelKey: "cap_knowledge" },
+  { icon: Shield, labelKey: "cap_safety" },
+];
 
 export default function Hero() {
-  const [messages, setMessages] = useState<Array<{text: string, sender: 'bot' | 'user', visible: boolean}>>([]);
-  
-  useEffect(() => {
-    const chatSequence = [
-      { text: "Hello, I'm NUVA, your medical AI assistant. How can I help you today?", sender: 'bot' as const, delay: 800 },
-      { text: "I have a headache and fatigue. What could be causing this?", sender: 'user' as const, delay: 4000 },
-      { text: "I can help analyze your symptoms. How long have you had these symptoms? Any fever or nausea?", sender: 'bot' as const, delay: 7500 }
-    ];
-
-    const timeouts: NodeJS.Timeout[] = [];
-    
-    chatSequence.forEach((msg) => {
-      const timeout = setTimeout(() => {
-        setMessages(prev => [...prev, { ...msg, visible: true }]);
-      }, msg.delay);
-      timeouts.push(timeout);
-    });
-
-    return () => {
-      timeouts.forEach(timeout => clearTimeout(timeout));
-    };
-  }, []);
-
-  const scrollToSection = (id: string) => {
-    const element = document.querySelector(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth", block: "start" });
-    }
-  };
+  const { t, dir } = useI18n();
+  const reduce = useReducedMotion();
+  const dirVal: "ltr" | "rtl" = dir === "rtl" ? "rtl" : "ltr";
+  const messages = [
+    { role: "user" as const, text: t("hero_user"), dir: dirVal },
+    { role: "assistant" as const, text: t("hero_ai"), dir: dirVal },
+  ];
 
   return (
-    <section className="hero" aria-labelledby="hero-title">
-      <div className="container hero-grid">
-        <div className="hero-content">
-          <div className="hero-text">
-            <h1 className="hero-title">
-              Meet <span className="gradient-text">NUVA</span> – Kurdistan's First Medical AI Assistant
-            </h1>
-            <p className="hero-subtitle">
-              Medical AI designed to support healthcare professionals and patients with information and guidance. 
-              NUVA assists—your doctor decides.
-            </p>
-            <div className="hero-actions">
-              <a href="https://ai.nuva.krd" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Try NUVA</a>
-              <a href="#what-is-nuva" className="btn btn-secondary">How it works</a>
-            </div>
-          </div>
-          <div className="hero-meta" aria-label="NUVA quick stats">
-            <div className="meta-item">
-              <span className="meta-label">Languages</span>
-              <span className="meta-value">Kurdish, Arabic, English</span>
-            </div>
-            <div className="meta-item">
-              <span className="meta-label">Designed for</span>
-              <span className="meta-value">Medical professionals</span>
-            </div>
-            <div className="meta-item">
-              <span className="meta-label">Privacy</span>
-              <span className="meta-value">Medical‑grade security</span>
-            </div>
-          </div>
-        </div>
-
-        <div className="hero-panel" aria-label="NUVA live preview" data-animate="fade-left">
-          <div className="glass-card hero-preview">
-            <div className="preview-header">
-              <span className="status-dot"></span>
-              <span className="preview-title">NUVA conversation</span>
-            </div>
-            <div className="preview-body">
-              {messages.map((msg, index) => (
-                <div key={index} className={`message-row ${msg.sender} ${msg.visible ? 'message-fade-in' : ''}`}>
-                  <div className="avatar">
-                    {msg.sender === 'bot' ? (
-                      <Image 
-                        src="/images/alone-logo-d.png" 
-                        alt="NUVA" 
-                        width={24} 
-                        height={24}
-                        className="avatar-logo"
-                      />
-                    ) : (
-                      'You'
-                    )}
-                  </div>
-                  <div className="message typing-animation">
-                    {msg.text}
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="preview-footer">
-              <div className="input-pill" aria-label="Chat input mockup">
-                <span className="input-placeholder">Ask about symptoms, medications…</span>
-                <span className="input-icon">↑</span>
+    <section id="top" className="relative pt-36 sm:pt-44 lg:pt-52 pb-20 sm:pb-28">
+      <div className="shell">
+        <div className="grid lg:grid-cols-[1fr_1.05fr] gap-12 lg:gap-12 items-center">
+          {/* Left — text */}
+          <div className="max-w-xl">
+            <Reveal>
+              <div className="inline-flex items-center gap-2.5 rounded-full glass px-3.5 py-1.5">
+                <motion.span
+                  className="pulse-dot"
+                  animate={reduce ? undefined : { scale: [1, 1.3, 1] }}
+                  transition={{ duration: 2.4, repeat: Infinity, ease: "easeInOut" }}
+                />
+                <ShinyText
+                  text={t("hero_eyebrow")}
+                  className="text-[11px] font-semibold uppercase tracking-[0.22em]"
+                  speed={3}
+                  color="#5E5E66"
+                  shineColor="#ffffff"
+                />
               </div>
+            </Reveal>
+
+            <Reveal delay={0.1}>
+              <h1 className="display mt-7 text-[2.6rem] sm:text-6xl lg:text-[4rem] gradient-text text-balance">
+                {t("hero_title")}
+              </h1>
+            </Reveal>
+
+            <Reveal delay={0.25}>
+              <p className="mt-6 text-[15px] sm:text-base text-[var(--text-2)] leading-relaxed max-w-md">
+                {t("hero_sub")}
+              </p>
+            </Reveal>
+
+            {/* Capability icons — clean, minimal row */}
+            <Reveal delay={0.4}>
+              <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-3">
+                {capabilities.map((c) => {
+                  const Icon = c.icon;
+                  return (
+                    <span
+                      key={c.labelKey}
+                      className="inline-flex items-center gap-1.5 text-[12.5px] text-[var(--text-2)] transition-colors hover:text-[var(--text)]"
+                    >
+                      <Icon className="h-[15px] w-[15px]" strokeWidth={1.5} />
+                      {t(c.labelKey)}
+                    </span>
+                  );
+                })}
+              </div>
+            </Reveal>
+          </div>
+
+          {/* Right — AI interface */}
+          <div className="relative">
+            <div
+              className="absolute inset-0 -z-10 blur-3xl opacity-30"
+              style={{ background: "radial-gradient(36rem 28rem at 60% 40%, rgba(124,138,255,0.08), transparent 60%)" }}
+              aria-hidden
+            />
+
+            <motion.div
+              animate={reduce ? undefined : { y: [0, 10, 0] }}
+              transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <ChatMockup
+                messages={messages}
+                status={t("chat_listening")}
+                input={t("hero_input")}
+                showTyping
+                className="max-w-md mx-auto lg:ms-auto lg:me-0"
+              />
+            </motion.div>
+
+            <div
+              className="absolute -bottom-5 end-4 sm:end-8 z-10 glass rounded-2xl px-4 py-2.5 hidden sm:flex items-center gap-2.5"
+            >
+              <Shield className="h-3.5 w-3.5 text-[var(--text-2)]" strokeWidth={1.5} />
+              <span className="text-[11px] text-[var(--text-2)]">{t("hero_disclaimer")}</span>
             </div>
           </div>
         </div>

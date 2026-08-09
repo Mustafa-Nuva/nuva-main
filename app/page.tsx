@@ -1,80 +1,33 @@
-"use client";
-
-import { useEffect } from "react";
-import LogoIntro from "@/components/LogoIntro";
-import Header from "@/components/Header";
+import Background from "@/components/ui/Background";
+import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
-import MedicalScrollAnimation from "@/components/MedicalScrollAnimation";
-import WhatIsNuva from "@/components/WhatIsNuva";
-import UseCases from "@/components/UseCases";
-import Features from "@/components/Features";
-import About from "@/components/About";
-import AboutTheTeam from "@/components/AboutTheTeam";
-import Safety from "@/components/Safety";
+import Trust from "@/components/Trust";
+import ProductShowcase from "@/components/ProductShowcase";
+import RolesSection from "@/components/RolesSection";
+import VoiceSection from "@/components/VoiceSection";
 import Privacy from "@/components/Privacy";
-import LanguageAccessibility from "@/components/LanguageAccessibility";
-import FutureCapabilities from "@/components/FutureCapabilities";
-import AccountPersonalization from "@/components/AccountPersonalization";
-import HowItWorks from "@/components/HowItWorks";
+import AppDownload from "@/components/AppDownload";
+import Team from "@/components/Team";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
-import StatsSection from "@/components/StatsSection";
-import InteractiveFeatures from "@/components/InteractiveFeature";
 
 export default function Home() {
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const target = entry.target as HTMLElement;
-            const delay = target.getAttribute("data-animate-delay");
-            if (delay) {
-              setTimeout(() => {
-                target.classList.add("is-visible");
-              }, Number(delay));
-            } else {
-              target.classList.add("is-visible");
-            }
-            observer.unobserve(target);
-          }
-        });
-      },
-      {
-        threshold: 0.18,
-      }
-    );
-
-    document.querySelectorAll("[data-animate]").forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <>
-      <LogoIntro />
-      <div className="page-shell">
-        <Header />
-        <main id="top" className="pt-20">
-          <Hero />
-          <MedicalScrollAnimation />
-          <StatsSection />
-          <WhatIsNuva />
-          <InteractiveFeatures />
-          <UseCases />
-          <Features />
-          <About />
-          <AboutTheTeam />
-          <Safety />
-          <Privacy />
-          <LanguageAccessibility />
-          <FutureCapabilities />
-          <AccountPersonalization />
-          <HowItWorks />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
+      <Background />
+      <Navbar />
+      <main>
+        <Hero />
+        <Trust />
+        <ProductShowcase />
+        <RolesSection />
+        <VoiceSection />
+        <Privacy />
+        <AppDownload />
+        <Team />
+        <Contact />
+      </main>
+      <Footer />
     </>
   );
 }
