@@ -1,6 +1,6 @@
 "use client";
 
-import { LifeBuoy, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import Reveal from "./ui/Reveal";
 import Magnetic from "./ui/Magnetic";
 import InstagramIcon from "./ui/InstagramIcon";
@@ -49,16 +49,6 @@ export default function Contact() {
                 >
                   <LinkedInIcon className="h-4 w-4" />
                   LinkedIn
-                </Magnetic>
-                <Magnetic
-                  href="https://help.nuva.krd"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn btn-ghost"
-                  strength={0.2}
-                >
-                  <LifeBuoy className="h-4 w-4" strokeWidth={1.5} />
-                  Help Center
                 </Magnetic>
               </div>
             </Reveal>

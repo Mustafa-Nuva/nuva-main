@@ -16,7 +16,7 @@ export default function Navbar() {
     { label: t("nav_product"), href: "#product" },
     { label: t("nav_features"), href: "#roles" },
     { label: t("nav_safety"), href: "#safety" },
-    { label: t("nav_about"), href: "#team" },
+    { label: "Help Center", href: "https://help.nuva.krd", external: true },
   ];
 
   useEffect(() => {
@@ -51,6 +51,8 @@ export default function Navbar() {
               <a
                 key={l.href + l.label}
                 href={l.href}
+                target={l.external ? "_blank" : undefined}
+                rel={l.external ? "noopener noreferrer" : undefined}
                 className="text-[13px] lg:text-[13.5px] text-[var(--text-2)] hover:text-white transition-colors duration-200 whitespace-nowrap"
               >
                 {l.label}
@@ -107,6 +109,8 @@ export default function Navbar() {
                   <a
                     key={l.href + l.label}
                     href={l.href}
+                    target={l.external ? "_blank" : undefined}
+                    rel={l.external ? "noopener noreferrer" : undefined}
                     onClick={() => setOpen(false)}
                     className="text-2xl font-medium tracking-tight py-3 border-b border-white/[0.06] text-white/85 hover:text-white transition"
                   >

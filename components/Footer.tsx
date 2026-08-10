@@ -1,6 +1,6 @@
 "use client";
 
-import { LifeBuoy, Mail } from "lucide-react";
+import { Mail } from "lucide-react";
 import Logo from "./ui/Logo";
 import InstagramIcon from "./ui/InstagramIcon";
 import LinkedInIcon from "./ui/LinkedInIcon";
@@ -71,16 +71,6 @@ export default function Footer() {
               >
                 <LinkedInIcon className="h-4 w-4" />
                 LinkedIn
-              </a>
-              <br />
-              <a
-                href="https://help.nuva.krd"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 text-[13.5px] text-[var(--text-2)] hover:text-[var(--text)] transition"
-              >
-                <LifeBuoy className="h-4 w-4" strokeWidth={1.5} />
-                Help Center
               </a>
               <br />
               <a

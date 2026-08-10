@@ -8,6 +8,7 @@ import VoiceSection from "@/components/VoiceSection";
 import Privacy from "@/components/Privacy";
 import AppDownload from "@/components/AppDownload";
 import Team from "@/components/Team";
+import HelpSection from "@/components/HelpSection";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
@@ -25,6 +26,7 @@ export default function Home() {
         <Privacy />
         <AppDownload />
         <Team />
+        <HelpSection />
         <Contact />
       </main>
       <Footer />
